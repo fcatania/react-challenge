@@ -12,6 +12,8 @@ import { store } from './store/store'
 import { Provider } from 'react-redux'
 import { ProjectList } from './pages/ProjectList/ProjectList';
 import { EditProject } from './pages/EditProject/EditProject';
+import { CreateProject } from './pages/CreateProject/CreateProject';
+import { CreateUser } from './pages/CreateUser/CreateUser';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,15 @@ const router = createBrowserRouter([
   {
     path: '/edit-project/:id',
     element: <EditProject />,
-  }
+  },
+  {
+    path: '/create-project',
+    element: <CreateProject />,
+  },
+  {
+    path: '/create-user',
+    element: <CreateUser />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(

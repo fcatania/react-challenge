@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './Header.module.css';
 import { Typography, Button, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 type HeaderProps = {
   title: string,
@@ -8,6 +9,16 @@ type HeaderProps = {
 }
 
 export const Header = ({ title, showButtons }: HeaderProps) => {
+  const navigate = useNavigate();
+
+  const onClickCreateProject = useCallback(() => {
+    navigate('/create-project');
+  }, []);
+
+  const onClickCreateUser = useCallback(() => {
+    navigate('/create-user');
+  }, []);
+
   return (
     <header className={styles.header}>
       <Typography variant="h1" mt={2} gutterBottom fontSize={32}>
@@ -15,8 +26,8 @@ export const Header = ({ title, showButtons }: HeaderProps) => {
       </Typography>
       {showButtons &&
         <Stack direction="row" spacing={2}>
-          <Button variant="contained">NEW PROJECT</Button>
-          <Button variant="contained">NEW USER</Button>
+          <Button variant="contained" onClick={onClickCreateProject}>CREATE PROJECT</Button>
+          <Button variant="contained" onClick={onClickCreateUser}>CREATE USER</Button>
         </Stack>
       }
     </header>
