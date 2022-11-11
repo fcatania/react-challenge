@@ -23,11 +23,12 @@ export const EditProject = () => {
   const [descriptionValue, onChangeDescription] = useControlledInput(project?.description);
 
   const onSubmit = useCallback(() => {
+    if (!project || !ownerValue) return;
     dispatch(edit({
-      id: project?.id || -1,
+      id: project.id,
       name: nameValue,
       description: descriptionValue,
-      owner: ownerValue?.id || -1,
+      owner: ownerValue.id,
     }));
     navigate('/');
   }, [project, nameValue, descriptionValue, ownerValue]);
