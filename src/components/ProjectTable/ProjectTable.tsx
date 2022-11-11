@@ -9,8 +9,11 @@ import { Project } from '../../models/Project';
 import { GridCellParams } from '@mui/x-data-grid';
 import { useNavigate } from "react-router-dom";
 
-export const ProjectTable = () => {
-  const projects = useSelector((state: RootState) => state.projects.data);
+type ProjectTableProps = {
+  projects: Array<Project>,
+};
+
+export const ProjectTable = ({ projects }: ProjectTableProps) => {
   const users = useSelector((state: RootState) => state.users.data);
   const navigate = useNavigate();
 
