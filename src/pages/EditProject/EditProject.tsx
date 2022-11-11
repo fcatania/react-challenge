@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styles from './EditProject.module.css';
 import { Header } from '../../components/Header/Header';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { useProjectById } from '../../hooks/useProjectById';
 import { Stack, TextField, Autocomplete, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
@@ -34,7 +34,7 @@ export const EditProject = () => {
   }, [project, nameValue, descriptionValue, ownerValue]);
 
   if (!project) {
-    return null; // error state?
+    return <Navigate to="/error" replace={true} />;
   }
 
   return (

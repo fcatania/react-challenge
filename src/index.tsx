@@ -14,11 +14,13 @@ import { ProjectList } from './pages/ProjectList/ProjectList';
 import { EditProject } from './pages/EditProject/EditProject';
 import { CreateProject } from './pages/CreateProject/CreateProject';
 import { CreateUser } from './pages/CreateUser/CreateUser';
+import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <ProjectList />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/edit-project/:id',
