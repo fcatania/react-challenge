@@ -11,12 +11,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from './store/store'
 import { Provider } from 'react-redux'
 import { ProjectList } from './pages/ProjectList/ProjectList';
+import { EditProject } from './pages/EditProject/EditProject';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <ProjectList />,
   },
+  {
+    path: '/edit-project/:id',
+    element: <EditProject />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(

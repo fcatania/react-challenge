@@ -7,13 +7,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { Project } from '../../models/Project';
 import { GridCellParams } from '@mui/x-data-grid';
+import { useNavigate } from "react-router-dom";
 
 export const ProjectTable = () => {
   const projects = useSelector((state: RootState) => state.projects.data);
   const users = useSelector((state: RootState) => state.users.data);
+  const navigate = useNavigate();
 
-  const onClickEditAction = useCallback((row: Project) => {
-    // navigate to new page
+  const onClickEditAction = useCallback((project: Project) => {
+    navigate('/edit-project/' + project.id);
   }, []);
 
   const renderEditAction = useCallback((params: GridCellParams) => {
@@ -58,6 +60,7 @@ export const ProjectTable = () => {
         rows={projects}
         columns={columns}
         pageSize={20}
+        rowsPerPageOptions={[20]}
       />
     </Box>
   );
