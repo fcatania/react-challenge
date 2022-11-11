@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Button, Stack } from '@mui/material';
 import styles from './ProjectList.module.css';
+import { ProjectTable } from '../../components/ProjectTable/ProjectTable';
 
 export const ProjectList = () => {
   return (
@@ -14,6 +15,9 @@ export const ProjectList = () => {
           <Button variant="contained">NEW USER</Button>
         </Stack>
       </header>
+      <div className={styles.tableContainer}>
+        <ProjectTable />
+      </div>
     </div >
   );
 }
