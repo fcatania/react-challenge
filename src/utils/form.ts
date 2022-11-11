@@ -1,0 +1,6 @@
+export const validateEmail = (str: string): boolean => {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(str)) {
+    return true;
+  }
+  return false;
+};
